@@ -1,7 +1,6 @@
 # What is it
 
-This python code takes a midi .mid file and converts it to a .dawproject archive ready for import by Presonus Studio One.
-It also sets up each track with a Vienna Ensemble Pro Event VST3 plugin instance, and names each track with both the original track name with the midi channel appended.
+This python code takes a midi .mid file and converts it to a .dawproject archive ready for import by Presonus Studio One as per the open source `.dawproject` format https://github.com/bitwig/dawproject. It also sets up each track with a Vienna Ensemble Pro Event VST3 plugin instance, and names each track with both the original track name with the midi channel appended.
 
 # Outline of code
 
