@@ -1,0 +1,8 @@
+*.dawproject
+*.pyc
+*.pyo
+
+*.vstpreset
+!vepro_event.vstpreset
+
+*.xml
