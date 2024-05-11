@@ -75,11 +75,12 @@ IX. Function: convert(midi_file)
 Download the full archive. Make sure to install the requirments.txt
 Navgigate to the extracted folder. Then from command line from that location:
 
+````
   pip install -r requirements.txt
-
+````
 Then,
-
+````
   python main.py
-
+````
 You will then be asked to select a .mid file, and the .dawproject will be written to the python scripts location.
 
