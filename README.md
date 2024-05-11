@@ -1,9 +1,9 @@
-**What is it**
+# What is it
 
 This python code takes a midi .mid file and converts it to a .dawproject archive ready for import by Presonus Studio One.
 It also sets up each track with a Vienna Ensemble Pro Event VST3 plugin instance, and names each track with both the original track name with the midi channel appended.
 
-**Outline of code**
+# Outline of code
 
 I. Import necessary libraries
   A. lxml for XML processing
@@ -69,4 +69,17 @@ IX. Function: convert(midi_file)
   C. Create the project XML using create_project_file()
   D. Create the .dawproject archive using create_dawproject_archive()
   E. Validate the project XML using validate()
+
+# Installation
+
+Download the full archive. Make sure to install the requirments.txt
+Navgigate to the extracted folder. Then from command line from that location:
+
+  pip install -r requirements.txt
+
+Then,
+
+  python main.py
+
+You will then be asked to select a .mid file, and the .dawproject will be written to the python scripts location.
 
