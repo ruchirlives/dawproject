@@ -201,7 +201,7 @@ def validate(projectxmlfile):
         print(schema.error_log)
 
 
-def create_dawproject_archive(project, name):
+def create_dawproject_archive(project, name, folder):
     # Save the new XML file
     output_file = "project.xml"
     with open(output_file, "wb") as f:
@@ -215,7 +215,7 @@ def create_dawproject_archive(project, name):
 
     # Define the paths
     xml_file = output_file
-    dawproject_file = f"{name}.dawproject"
+    dawproject_file = f"{folder}/{name}.dawproject"
 
     # Create a ZipFile object
     with zipfile.ZipFile(dawproject_file, "w") as zipf:
@@ -237,9 +237,10 @@ def create_dawproject_archive(project, name):
     return xml_file, dawproject_file
 
 
-def create_plugin_folder(midi_file):
+def create_plugin_folder(midi_file, folder):
     # Create a folder for the VST3 plugin
-    plugin_folder = "plugins"
+    plugin_folder = folder + "/plugins" # create a folder for the VST3 plugin
+
     if not os.path.exists(plugin_folder):
         os.makedirs(plugin_folder)
 
@@ -268,14 +269,17 @@ def convert(midi_file):
     # Load the MIDI file
     miditracks = get_midi_info(midi_file)
 
+    # get folder for the selected midi file
+    folder = os.path.dirname(midi_file)
+
     # extract name from file path
     name = os.path.splitext(os.path.basename(midi_file))[0]
     project = create_project_file(miditracks)
 
     # Create the plugin folder
-    create_plugin_folder(midi_file)
+    create_plugin_folder(midi_file, folder)
 
-    xml_file, dawproject_file = create_dawproject_archive(project, name)
+    xml_file, dawproject_file = create_dawproject_archive(project, name, folder)
 
     validate(xml_file)
     return dawproject_file
